@@ -1,0 +1,28 @@
+<form #newGroceryform="ngForm" (ngSubmit)="submit(newGroceryform)">
+    <div class="mb-3">
+        <label for="groname" class="form-label">Grocery Name</label>
+        <input type="text" class="form-control" id="title" aria-describedby="gronameHelp" name="title" [(ngModel)]="Grocery.title"  text required >
+        <!-- <div id="fnameHelp" class="form-text" *ngIf="fname.touched && fname.invalid">First Name is Required</div> -->
+      </div>
+      <div class="mb-3">
+        <label for="desc" class="form-label">Description</label>
+        <input type="text" class="form-control" id="desc" aria-describedby="descHelp" name="desc" [(ngModel)]="Grocery.desc"  text required  >
+        <!-- <div id="lnameHelp" class="form-text" *ngIf="lname.touched && lname.invalid">Last Name is Required</div> -->
+      </div>
+      <div class="mb-3">
+        <label for="price" class="form-label">Price</label>
+        <input type="number" class="form-control" id="price" aria-describedby="priceHelp" name="price" [(ngModel)]="Grocery.price" price required >
+        <!-- <div id="emailHelp" class="form-text" *ngIf="email.touched &&email.invalid">Email is Invalid</div> -->
+      </div>
+      <div class="mb-3">
+        <label for="imgsrc" class="form-label">Image Link</label>
+        <input type="text" class="form-control" id="imgsrc" name="imgsrc" [(ngModel)]="Grocery.imgsrc" required >
+        <!-- <div id="passwordhelp" class="form-text" *ngIf="password.touched &&password.invalid">Password is Invalid</div> -->
+      </div>
+      <div class="mb-3">
+        <label for="category" class="form-label">Category</label>
+        <input type="text" class="form-control" id="category" name="category" [(ngModel)]="Grocery.category" required >
+        <!-- <div id="cpasswordhelp" class="form-text" *ngIf="cpassword.touched &&cpassword.invalid">Confirm Password is Invalid</div> -->
+      </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!newGroceryform.valid">Submit</button>
+  </form>

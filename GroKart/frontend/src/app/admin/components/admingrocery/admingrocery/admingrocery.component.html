@@ -1,0 +1,44 @@
+
+
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6"><button type="button" class="btn btn-outline-secondary btn-lg" (click)="addnewgrocery()">Add new Grocery</button></div>
+</div>
+<br/>
+<table class="table table-striped">
+    <thead>
+        <td>Id</td>
+        <td>Name</td>
+        <td>Description</td>
+        <td>Price</td>
+        <td>Image</td>
+      
+    </thead>
+    <tbody>
+       
+      <tr *ngFor="let gro of groceries">
+        <td>
+            {{gro._id}}
+        </td>
+        <td>
+            {{gro.title}}
+        </td>
+        <td>
+            {{gro.desc}}
+         
+        </td>
+        <td>
+            {{gro.price}}
+            </td>
+            <td>
+                <img src={{gro.imgsrc}} class="card-img-top" width="158rem" height="188rem" alt="...">
+            </td>
+            <td>
+                <button class="btn btn-outline-dark" (click)="edit(gro)" >Edit </button>&nbsp;&nbsp;
+                <button class="btn btn-outline-dark" (click)="delete(gro)">Delete </button>
+            </td>
+      </tr>
+     
+    </tbody>
+  </table>
+  

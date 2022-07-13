@@ -1,11 +1,70 @@
-<p>groceryhome works!</p>
+<!-- grocery home works!!!!
 
+<p>{{groId}} -->
+<div class="cardcontainer">
+  <div class="card mb-3" style="max-width: 1040px; border: 0em">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img
+          src="{{ grocery.imgsrc }}"
+          class="img-fluid rounded-start"
+          alt="..."
+        />
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{ grocery.title }}</h5>
+          <p class="card-text">{{ grocery.price }}/{{ grocery.desc }}</p>
+          <div *ngIf="quantity < 1">
+            <button class="btn btn-primary" (click)="gotocart()">
+              Add to Cart
+            </button>
+          </div>
 
-<div class="row">
-  <div class="col-md-3" *ngFor="let card of groceries">
-  
-<app-card [card]="card"></app-card>
+          <div *ngIf="quantity >= 1">
+            <button class="btn btn-success btn-lg" (click)="decrement()">
+              -
+            </button>
+            <span style="font-size: 1.8em">{{ quantity }}</span>
+            <button class="btn btn-success btn-lg" (click)="increment()">
+              +
+            </button>
+          </div>
 
+          <div *ngIf="addWishlist == true">
+            <button
+              class="btn btn-light"
+              (click)="addtowishlist()"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="Add to Wishlist"
+            >
+              <img
+                src="https://purepng.com/public/uploads/large/heart-icon-y1k.png"
+                style="height: 40px; width: 40px"
+                class="img-fluid rounded-start"
+                alt="..."
+              />
+            </button>
+          </div>
+          <div *ngIf="addWishlist == false">
+            <button
+              class="btn btn-light"
+              (click)="removefromwishlist()"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="Remove from Wishlist"
+            >
+              <img
+                src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/heart-icon-design-template-7582e2dfe68c75576eeec72967453753_screen.jpg?ts=1624545175"
+                style="height: 40px; width: 40px"
+                class="img-fluid rounded-start"
+                alt="..."
+              />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-

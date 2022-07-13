@@ -1,0 +1,25 @@
+let express=require("express");
+let dbConnection=require("./config/dbConfig");
+let shopRouter=require("./router/shopRouter");
+let app=express();
+let cors=require("cors");
+
+dbConnection.connect();
+app.use(express.json());
+app.use(cors());
+
+
+
+//middleware
+//http://localhost:9090/api/product
+
+app.use("/api/grocery",shopRouter);
+
+
+
+
+
+
+app.listen(9090,()=>{
+    console.log("server is up");
+})

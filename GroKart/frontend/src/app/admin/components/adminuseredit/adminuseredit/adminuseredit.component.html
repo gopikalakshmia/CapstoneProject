@@ -1,0 +1,14 @@
+<p>adminuseredit works!</p>
+
+
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    
+  <label for="first-name">First Name: </label>
+  <input id="first-name" type="text" value="{{user.fname}}" formControlName="firstName">
+
+  <label for="last-name">Last Name: </label>
+  <input id="last-name" type="text" [value]="user.lname" formControlName="lastName">
+
+  <label for="email">Email: </label>
+  <input id="email" type="email" [value]="user.email" formControlName="email">
+</form>

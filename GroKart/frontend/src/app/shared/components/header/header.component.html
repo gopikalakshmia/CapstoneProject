@@ -1,13 +1,32 @@
-<nav class="navbar bg-light ">
+<nav class="navbar bg-grey">
   <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="offcanvas"
+      data-bs-target="#offcanvasWithBothOptions"
+      aria-controls="offcanvasWithBothOptions"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+    <div
+      class="offcanvas offcanvas-start"
+      data-bs-scroll="true"
+      tabindex="-1"
+      id="offcanvasWithBothOptions"
+      aria-labelledby="offcanvasWithBothOptionsLabel"
+    >
       <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Backdrop with scrolling</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">
+          Backdrop with scrolling
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
       </div>
       <div class="offcanvas-body">
         <p>Try scrolling the rest of the page to see this option in action.</p>
@@ -16,51 +35,92 @@
 
     <!-- icon -->
     <a class="navbar-brand" href="#">
-      <img src="/assets/img/imagelogo.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
-      GroKart
+      <img
+        src="https://is5-ssl.mzstatic.com/image/thumb/Purple124/v4/62/f9/e4/62f9e434-e8d5-8ec4-a504-8b402589fa1c/source/512x512bb.jpg"
+        alt=""
+        width="150"
+        height="80"
+        class="d-inline-block align-text-top"
+      />
+     
     </a>
 
-    <!-- search button -->
-    <form class="d-flex" role="search">
-      <input class="form-control me-2" id="seachtextbox" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success" type="submit">Search</button>
-    </form>
     <!-- Login -->
 
- <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-Login
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label">Email address</label>
-          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-        </div>
-        <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label">Password</label>
-          <input type="password" class="form-control" id="inputPassword" >
-        </div>
-        <div class="mb-3">
-          <button type="button" class="btn btn-primary">Login</button>
-        </div>
-      </div>
-      <div class="modal-footer">
-        Don't have account?
-        <button type="button" class="btn btn-primary">SignIn</button>
-      </div>
+    <!-- Button trigger modal -->
+    <div *ngIf="loginButtonVisibility">
+      <button
+        type="button"
+        class="btn btn-outline-primary"
+        data-bs-toggle="modal"
+        (click)="login()"
+        data-bs-target="#staticBackdrop"
+      >
+        Login
+      </button>
     </div>
-  </div>
-</div>
+    <div *ngIf="!loginButtonVisibility">
+      <button
+        type="button"
+        class="btn btn-primary"
+        data-bs-toggle="modal"
+        (click)="logout()"
+        data-bs-target="#staticBackdrop"
+      >
+        Logout
+      </button>
+    </div>
+    <!-- user -->
+    <button
+      type="button"
+      class="btn btn-outline-dark"
+      (click)="gotouser()"
+      data-bs-toggle="tooltip"
+      data-bs-placement="bottom"
+      title="User"
+    >
+      <img
+        src="https://icons.veryicon.com/png/o/internet--web/prejudice/user-128.png"
+        alt=""
+        width="30"
+        height="24"
+        class="d-inline-block align-text-top"
+      />
+    </button>
     <!-- cart -->
-    <button type="button" class="btn btn-secondary"><img src="https://static.vecteezy.com/system/resources/thumbnails/004/798/846/small/shopping-cart-logo-or-icon-design-vector.jpg"alt="" width="30" height="24" class="d-inline-block align-text-top"></button>
+
+    <button
+      type="button"
+      class="btn btn-outline-success"
+      (click)="gotocart()"
+      data-bs-toggle="tooltip"
+      data-bs-placement="bottom"
+      title="Cart"
+    >
+      <img
+        src="https://www.kindpng.com/picc/m/80-804194_cart-free-cart-icon-png-transparent-png.png"
+        alt=""
+        width="30"
+        height="24"
+        class="d-inline-block align-text-top"
+      /><span>{{ cartCount }}</span>
+    </button>
+    <!-- Wishlist -->
+    <button
+      type="button"
+      class="btn btn-outline-danger"
+      (click)="gotowishlist()"
+      data-bs-toggle="tooltip"
+      data-bs-placement="bottom"
+      title="Wishlist"
+    >
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3bjhvrKW4O8paiEJrdFsw3S-oEPEz6uL3vQ&usqp=CAU"
+        alt=""
+        width="30"
+        height="24"
+        class="d-inline-block align-text-top"
+      /><span>{{ wishlistcount }}</span>
+    </button>
   </div>
 </nav>

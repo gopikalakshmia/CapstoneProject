@@ -1,8 +1,48 @@
 <div class="card" style="width: 18rem;">
-    <img src={{card.imgsrc}} class="card-img-top" alt="...">
+    <a [routerLink]="['/grocery',card._id]"><img src={{card.imgsrc}} class="card-img-top" width="158rem" height="188rem" alt="..."></a>
     <div class="card-body">
       <h5 class="card-title">{{card.title}}</h5>
-      <p class="card-text">{{card.title}}</p>
-      <a href="#" class="btn btn-primary">Add to Cart</a>
+      <p class="card-text">{{card.price}}/{{card.desc}}</p>
+      <div *ngIf="quantity<1"><button class="btn btn-primary" (click)="gotocart()">Add to Cart</button></div> 
+      <div *ngIf="quantity>=1">
+      
+       <button class="btn btn-success"  (click)="decrement()" >-</button>
+       <span >{{quantity}}</span>
+       <button class="btn btn-success"  (click)="increment()" >+</button>
+      </div>
+  <!-- wishlist -->
+  <div *ngIf="addWishlist == true">
+    <button
+      class="btn btn-light"
+      (click)="addtowishlist()"
+      data-bs-toggle="tooltip"
+      data-bs-placement="top"
+      title="Add to Wishlist"
+    >
+      <img
+        src="https://purepng.com/public/uploads/large/heart-icon-y1k.png"
+        style="height: 40px; width: 40px"
+        class="img-fluid rounded-start"
+        alt="..."
+      />
+    </button>
+  </div>
+  <div *ngIf="addWishlist == false">
+    <button
+      class="btn btn-light"
+      (click)="removefromwishlist()"
+      data-bs-toggle="tooltip"
+      data-bs-placement="top"
+      title="Remove from Wishlist"
+    >
+      <img
+        src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/heart-icon-design-template-7582e2dfe68c75576eeec72967453753_screen.jpg?ts=1624545175"
+        style="height: 40px; width: 40px"
+        class="img-fluid rounded-start"
+        alt="..."
+      />
+    </button>
+  </div>
+     
     </div>
   </div>

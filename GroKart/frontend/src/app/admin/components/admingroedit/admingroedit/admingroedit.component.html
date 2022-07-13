@@ -1,0 +1,15 @@
+
+
+<form *ngIf="groForm" [formGroup]="groForm" (ngSubmit)="onSubmit()">
+    
+  <label for="title">Title: </label>
+  <input id="title" type="text" value={{gro.title}} formControlName="title">
+
+  <label for="desc">Description: </label>
+  <input id="desc" type="text" [value]="gro.desc" formControlName="desc">
+
+  <label for="price">Price: </label>
+  <input id="price" type="text" [value]="gro.price" formControlName="price">
+
+  <button onsubmit="onSubmit()">Submit</button>
+</form> 

@@ -1,0 +1,36 @@
+
+
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6"><button type="button" class="btn btn-outline-secondary btn-lg" (click)="addnewuser()">Add new User</button></div>
+</div>
+<br/>
+<table class="table table-striped">
+    <thead>
+
+      
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>
+            {{user._id}}
+        </td>
+        <td>
+            {{user.fname}}
+        </td>
+        <td>
+            {{user.lname}}
+         
+        </td>
+        <td>
+            {{user.email}}
+        </td>
+        <td>
+            <button class="btn btn-outline-dark" (click)="edit(user)" >Edit </button>&nbsp;&nbsp;
+            <button class="btn btn-outline-dark" (click)="delete(user)">Delete </button>
+        </td>
+      </tr>
+     
+    </tbody>
+  </table>
+  

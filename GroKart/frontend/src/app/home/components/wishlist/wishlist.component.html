@@ -1,0 +1,35 @@
+
+
+<table class="table">
+    <thead>
+      Your Wishlist
+    </thead>
+    <tbody>
+      <tr *ngFor="let wishlist of wishlistmod">
+        <td>
+          <img
+            src="{{ wishlist.grocery.imgsrc }}"
+            class=""
+            width="180rem"
+            height="100rem"
+            alt="..."
+          />
+        </td>
+        <td>
+          <h5 class="card-title">{{ wishlist.grocery.title }}</h5>
+          <p class="card-text">
+            {{ wishlist.grocery.price }}/{{ wishlist.grocery.desc }}
+          </p>
+        </td>
+        <td>
+          
+            <button class="btn btn-outline-warning" (click)="removefromwishlist(wishlist.groid)">
+              Remove from wishlist
+            </button>
+            
+        </td>
+        
+      </tr>
+    </tbody>
+  </table>
+  

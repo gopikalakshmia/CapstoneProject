@@ -1,0 +1,73 @@
+<!-- second carousal -->
+
+<div>
+    <div
+      id="{{'carouselExampleControls'+category}}"
+      class="carousel carousel-dark slide"
+      data-bs-touch="false"
+      data-bs-interval="false"
+    >
+      <div class="carousel-inner">
+        <nav class="navbar bg-light">
+          <div class="container-fluid">
+            
+              <div class="col-md-6">
+                <span class="navbar-brand mb-0 h1">Fresh {{category}}</span>
+              </div>
+              <div class="col-md-1" style="text-align-last: right">
+                <button type="button" class="btn btn-outline-success" (click)="gotoViewMore(category)">View More</button>
+              </div>
+            <div class="col-md-5" style="text-align-last: right">
+              
+              <button
+                class="btn btn-outline-secondary"
+                type="button"
+                [attr.data-bs-target]="'#carouselExampleControls'+category"
+                data-bs-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button
+                class="btn btn-outline-secondary"
+                type="button"
+                [attr.data-bs-target]="'#carouselExampleControls'+category"
+                data-bs-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="false"
+                ></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+        </nav>
+        <div class="carousel-item active" id="carousalimage1">
+          <div class="row">
+            <div class="col-md-3" *ngFor="let card of groceries.slice(0, 4)">
+              <app-card [card]="card"></app-card>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item" id="carousalimage1">
+          <div class="row">
+            <div class="col-md-3" *ngFor="let card of groceries.slice(4, 8)">
+              <app-card [card]="card"></app-card>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item" id="carousalimage1">
+          <div class="row">
+            <div class="col-md-3" *ngFor="let card of groceries.slice(8, 12)">
+              <app-card [card]="card"></app-card>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

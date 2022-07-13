@@ -1,8 +1,9 @@
 export class GroceryCard{
-id?:number;
+_id?:string;
 title?:string;
 desc?:string;
 price?:number;
 imgsrc?:string;
+category:string
 constructor(){}
 }

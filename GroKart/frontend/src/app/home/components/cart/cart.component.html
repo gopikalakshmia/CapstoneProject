@@ -1,0 +1,70 @@
+<!-- <p>cart works!</p>
+<div *ngFor="let cart of cartmod">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card" style="width: 18rem;">
+   
+                <img src={{cart.grocery.imgsrc}} class="card-img-top"    alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">{{cart.grocery.title}}</h5>
+                  <p class="card-text">{{cart.grocery.price}}/{{cart.grocery.desc}}</p>
+                </div>
+               
+              </div>
+        </div>
+        <div class="col-md-6">
+            <div *ngIf="cart.quantity>=1">
+     
+                <button class="btn btn-success btn-lg"  (click)="decrement(cart)" >-</button>
+                <span style="font-size: 1.8em;">{{cart.quantity}}</span>
+                <button class="btn btn-success btn-lg"  (click)="increment(cart)" >+</button>
+           
+               </div>
+        </div>
+    </div>
+
+</div> -->
+
+<table class="table">
+  <thead>
+    Your Cart
+  </thead>
+  <tbody>
+    <tr *ngFor="let cart of cartmod">
+      <td>
+        <img
+          src="{{ cart.grocery.imgsrc }}"
+          class=""
+          width="180rem"
+          height="100rem"
+          alt="..."
+        />
+      </td>
+      <td>
+        <h5 class="card-title">{{ cart.grocery.title }}</h5>
+        <p class="card-text">
+          {{ cart.grocery.price }}/{{ cart.grocery.desc }}
+        </p>
+      </td>
+      <td>
+        <div *ngIf="cart.quantity >= 1">
+          <button class="btn btn-success btn-lg" (click)="decrement(cart)">
+            -
+          </button>
+          <span style="font-size: 1.8em">{{ cart.quantity }}</span>
+          <button class="btn btn-success btn-lg" (click)="increment(cart)">
+            +
+          </button>
+        </div>
+      </td>
+      <td>
+        ${{ cart.quantity*cart.grocery.price}}
+      </td>
+    </tr>
+    <tr >
+        <td></td>
+        <td colspan="3"> <button type="button" class="btn btn-outline-success">Proceed to CheckOut</button></td>
+       <td>{{checkoutprice}}</td>
+    </tr>
+  </tbody>
+</table>

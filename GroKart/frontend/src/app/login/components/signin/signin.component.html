@@ -1,0 +1,28 @@
+<form #signinform="ngForm" (ngSubmit)="submit(signinform)">
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">First Name</label>
+        <input type="text" class="form-control" id="fname" aria-describedby="fnameHelp" name="fname" [(ngModel)]="User.fname"  text required >
+        <!-- <div id="fnameHelp" class="form-text" *ngIf="fname.touched && fname.invalid">First Name is Required</div> -->
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Last Name</label>
+        <input type="text" class="form-control" id="lname" aria-describedby="lnameHelp" name="lname" [(ngModel)]="User.lname"  text required  >
+        <!-- <div id="lnameHelp" class="form-text" *ngIf="lname.touched && lname.invalid">Last Name is Required</div> -->
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" [(ngModel)]="User.email" email required >
+        <!-- <div id="emailHelp" class="form-text" *ngIf="email.touched &&email.invalid">Email is Invalid</div> -->
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" name="password" [(ngModel)]="User.password" required >
+        <!-- <div id="passwordhelp" class="form-text" *ngIf="password.touched &&password.invalid">Password is Invalid</div> -->
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">ConfirmPassword</label>
+        <input type="cpassword" class="form-control" id="exampleInputPassword2" name="cpassword" [(ngModel)]="User.cpassword" required >
+        <!-- <div id="cpasswordhelp" class="form-text" *ngIf="cpassword.touched &&cpassword.invalid">Confirm Password is Invalid</div> -->
+      </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!signinform.valid">Submit</button>
+  </form>

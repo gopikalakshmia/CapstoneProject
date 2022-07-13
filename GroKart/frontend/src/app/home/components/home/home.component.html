@@ -1,23 +1,56 @@
-<app-menu></app-menu>
-<div class="containers" id="carousalcontainer">
-<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active" id="carousalimage">
-        <img src="https://img.freepik.com/free-vector/grocery-food-facebook-cover-design-template_155157-149.jpg?w=2000" class="d-block w-100" alt="...">
+<div id="carousalcontainer">
+  <app-menu></app-menu>
+  <div class="row">
+    <div
+      id="carouselExampleControls"
+      class="carousel slide"
+      data-bs-ride="carousel"
+    >
+      <div class="carousel-inner">
+        <div class="carousel-item active" id="carousalimage">
+          <img
+            src="https://thumbs.dreamstime.com/b/healthy-food-selection-healthy-food-selection-fruits-vegetables-seeds-superfood-cereals-gray-background-121936825.jpg"
+            class="d-block w-100"
+            alt="..."
+          />
+        </div>
+        <div class="carousel-item" id="carousalimage">
+          <img
+            src="https://www.positivecommunitykitchen.org/media/recipe-banner-2.jpeg"
+            class="d-block w-100"
+            alt="..."
+          />
+        </div>
+        <div class="carousel-item" id="carousalimage">
+          <img
+            src="https://media.istockphoto.com/photos/shopping-basket-with-fresh-food-grocery-supermarket-food-and-eats-picture-id1216828053?k=20&m=1216828053&s=612x612&w=0&h=mMGSO8bG8aN0gP4wyXC17WDIcf9zcqIxBd-WZto-yeg="
+            class="d-block w-100"
+            alt="..."
+          />
+        </div>
       </div>
-      <div class="carousel-item" id="carousalimage">
-        <img src="https://www.questrmg.com/wp-content/uploads/2020/05/Online-Grocery-Shopping-Curb-Food-Waste_HERO.png" class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item" id="carousalimage">
-        <img src="https://www.gannett-cdn.com/presto/2020/04/10/USAT/2d441620-b2a6-41cf-af6f-2c41fd27c5b3-grocery-store-hero.jpg" class="d-block w-100" alt="...">
-      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExampleControls"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExampleControls"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="false"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="false"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
   </div>
+
+  <app-slidingbar [groceries]="vegetables" [category]="'vegitables'"></app-slidingbar>
+  <app-slidingbar [groceries]="fruits" [category]="'fruits'"></app-slidingbar>
+  <app-slidingbar [groceries]="diary" [category]="'diary'"></app-slidingbar>
+</div>

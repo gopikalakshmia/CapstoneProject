@@ -1,4 +1,11 @@
 #carousalcontainer{
-    width: 1000px;
-    height:300px;
+    max-width: 1280px;
+    margin: 0px auto;
+    padding: 32px 0px;
 }
+#carousalimage{
+    height: 350px;
+}
+
+
+
