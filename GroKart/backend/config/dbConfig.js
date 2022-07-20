@@ -1,5 +1,5 @@
 let mongoClient=require("mongodb").MongoClient;
-let url="mongodb://localhost:27017/";
+let url="mongodb+srv://gopikalakshmia:parukutty@cluster0.hj6jd.mongodb.net/?retryWrites=true&w=majority";
 let dbClient;
 
 //exporting connect function

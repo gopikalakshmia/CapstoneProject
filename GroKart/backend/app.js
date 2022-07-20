@@ -6,9 +6,13 @@ let cors=require("cors");
 
 dbConnection.connect();
 app.use(express.json());
+app.use(express.static('./dist/gro-kart'));
 app.use(cors());
 
-
+app.use(cors({
+    origin:"*",
+    methods:['GET','POST','PUT','DELETE']
+}))
 
 //middleware
 //http://localhost:9090/api/product
