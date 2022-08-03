@@ -25,14 +25,19 @@ export class SignupComponent implements OnInit {
         if(this.user.length>0){
           localStorage.setItem('currentUser', JSON.stringify({ userid:this.user[0]._id }));
           console.log(localStorage.getItem('currentUser'));
-         
+          
           this.router.navigateByUrl("/user");
+         
           
         }
-        
+        else{
+          alert("Invalid User");
+          signupform.reset();
+        }
       },
       (err)=>console.log(err),
-      ()=>{console.log("db working correctly");
+      ()=>{console.log("db working correctly"); 
+      
     }
     )
   }

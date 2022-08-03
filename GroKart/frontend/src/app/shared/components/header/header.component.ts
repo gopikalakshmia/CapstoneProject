@@ -59,6 +59,8 @@ export class HeaderComponent implements OnInit {
     localStorage.removeItem('currentUser');
     console.log(localStorage.getItem('currentUser'));
     this.loginButtonVisibility = true;
+    this.router.navigateByUrl('/');
+    window.location.reload();
   }
   //cart
   gotocart() {

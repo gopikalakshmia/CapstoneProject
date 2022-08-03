@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { GroceryhomeComponent } from './components/groceryhome/groceryhome.component';
 import { VegetablesComponent } from './components/vegetables/vegetables.component';
 import { FruitsComponent } from './components/fruits/fruits.component';
+import { DiaryComponent } from './components/diary/diary.component';
 
 
 
@@ -11,7 +12,8 @@ import { FruitsComponent } from './components/fruits/fruits.component';
   declarations: [
     GroceryhomeComponent,
     VegetablesComponent,
-    FruitsComponent
+    FruitsComponent,
+    DiaryComponent
   ],
   imports: [
     CommonModule,
@@ -20,7 +22,8 @@ import { FruitsComponent } from './components/fruits/fruits.component';
   exports:[
     GroceryhomeComponent,
     VegetablesComponent,
-    FruitsComponent
+    FruitsComponent,
+    DiaryComponent
   ]
 })
 export class GroceryModule { }

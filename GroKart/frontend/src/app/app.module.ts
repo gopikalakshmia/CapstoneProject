@@ -1,3 +1,4 @@
+import { DiaryComponent } from './grocery/components/diary/diary.component';
 import { AdminloginComponent } from './admin/components/adminlogin/adminlogin.component';
 import { AdmingroeditComponent } from './admin/components/admingroedit/admingroedit/admingroedit.component';
 import { AdminnewgroceryComponent } from './admin/components/adminnewgrocery/adminnewgrocery/adminnewgrocery.component';
@@ -45,7 +46,8 @@ const routes=[
   {path:'admingrocery',component:AdmingroceryComponent},
   {path:'addnewgrocery',component:AdminnewgroceryComponent},
   {path:'admingrocery/:id',component:AdmingroeditComponent},
-  {path:'adminsignIn',component:AdminloginComponent}
+  {path:'adminsignIn',component:AdminloginComponent},
+  {path:'diary',component:DiaryComponent},
 ]
 
 @NgModule({

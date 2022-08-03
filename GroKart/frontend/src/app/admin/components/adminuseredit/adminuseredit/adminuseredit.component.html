@@ -1,14 +1,18 @@
-<p>adminuseredit works!</p>
 
-
-<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+<form  *ngIf="userForm" [formGroup]="userForm" (ngSubmit)="onSubmit()">
     
-  <label for="first-name">First Name: </label>
-  <input id="first-name" type="text" value="{{user.fname}}" formControlName="firstName">
+  <label for="first-name" class="form-label">First Name: </label>
+  <input id="first-name" class="form-control" type="text" value="{{user.fname}}" formControlName="fname" required>
+  <div  class="form-text" *ngIf=" userForm.controls['fname'].invalid && (userForm.controls['fname'].dirty || userForm.controls['fname'].touched)">First Name is Invalid</div>
 
-  <label for="last-name">Last Name: </label>
-  <input id="last-name" type="text" [value]="user.lname" formControlName="lastName">
+  <label for="last-name" class="form-label">Last Name: </label>
+  <input id="last-name" class="form-control" type="text" [value]="user.lname" formControlName="lname" required>
+  <div  class="form-text" *ngIf=" userForm.controls['lname'].invalid && (userForm.controls['lname'].dirty || userForm.controls['lname'].touched)">Last Name is Invalid</div>
 
-  <label for="email">Email: </label>
-  <input id="email" type="email" [value]="user.email" formControlName="email">
+  <label for="email" class="form-label">Email: </label>
+  <input id="email" class="form-control" type="email" [value]="user.email" formControlName="email" required>
+  <div  class="form-text" *ngIf=" userForm.controls['email'].invalid && (userForm.controls['email'].dirty || userForm.controls['email'].touched)">Email is Invalid</div>
+  
+
+  <button  class="btn btn-primary" [disabled]="!userForm.valid" onsubmit="onSubmit()">Submit</button>
 </form>

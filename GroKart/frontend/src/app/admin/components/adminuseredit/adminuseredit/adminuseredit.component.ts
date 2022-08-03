@@ -24,6 +24,7 @@ export class AdminusereditComponent implements OnInit {
     this.adminservice.findaUser(obj).subscribe(
       (res) => {
         this.user = res[0];
+        console.log(this.user);
         this.userForm = new FormGroup({
           fname: new FormControl(this.user.fname),
           lname: new FormControl(this.user.lname),
@@ -45,10 +46,9 @@ export class AdminusereditComponent implements OnInit {
 
     this.adminservice.updateUser(this.updatedUser).subscribe(
       (val) => {
-        let result=val;
-      
-        if(result['modifiedCount']>0)
-        this.route.navigateByUrl('/adminuser');
+        let result = val;
+
+        if (result['modifiedCount'] > 0) this.route.navigateByUrl('/adminuser');
       },
       (err) => console.log(err),
       () => console.log('db done')

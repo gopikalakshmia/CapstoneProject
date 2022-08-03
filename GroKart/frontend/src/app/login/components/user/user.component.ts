@@ -8,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private router:Router) { 
+    
+  }
 
   ngOnInit(): void {
+   
   }
  //cart
  gotocart() {
