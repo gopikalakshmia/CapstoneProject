@@ -1,28 +1,32 @@
 <form #signinform="ngForm" (ngSubmit)="submit(signinform)">
     <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">First Name</label>
-        <input type="text" class="form-control" id="fname" aria-describedby="fnameHelp" name="fname" [(ngModel)]="User.fname"  text required >
-        <!-- <div id="fnameHelp" class="form-text" *ngIf="fname.touched && fname.invalid">First Name is Required</div> -->
-      </div>
+        <input type="text" class="form-control" id="fname" aria-describedby="fnameHelp" name="fname" [(ngModel)]="User.fname" #fname="ngModel" pattern="^[a-zA-Z]+$" minlength="3" maxlength="30" text required >
+        <div id="fnameHelp" class="form-text" *ngIf="fname.touched && fname.invalid">Invalid FirstName</div>
+        <div id="fnameHelp" class="form-text" *ngIf="(User.fname!=undefined)&&(User.fname.length<3 ||User.fname.length>30) ">Length of First Name  should be grater than 3 and less than 30</div>
+        </div>
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Last Name</label>
-        <input type="text" class="form-control" id="lname" aria-describedby="lnameHelp" name="lname" [(ngModel)]="User.lname"  text required  >
-        <!-- <div id="lnameHelp" class="form-text" *ngIf="lname.touched && lname.invalid">Last Name is Required</div> -->
+        <input type="text" class="form-control" id="lname" aria-describedby="lnameHelp" name="lname" [(ngModel)]="User.lname" #lname="ngModel" pattern="^[a-zA-Z]+$" minlength="3" maxlength="30" text required  >
+        <div id="fnameHelp" class="form-text" *ngIf="lname.touched && lname.invalid">Invalid Last Name</div>
+        <div id="fnameHelp" class="form-text" *ngIf="(User.lname!=undefined)&&(User.lname.length<3 ||User.lname.length>30 )">Length of Last Name  should be grater than 3 and less than 30</div>
       </div>
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" [(ngModel)]="User.email" email required >
-        <!-- <div id="emailHelp" class="form-text" *ngIf="email.touched &&email.invalid">Email is Invalid</div> -->
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" [(ngModel)]="User.email" #email="ngModel" email required >
+        <div id="emailHelp" class="form-text" *ngIf="email.touched &&email.invalid">Email is Invalid</div>
       </div>
       <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" name="password" [(ngModel)]="User.password" required >
-        <!-- <div id="passwordhelp" class="form-text" *ngIf="password.touched &&password.invalid">Password is Invalid</div> -->
+        <input type="password" class="form-control" id="exampleInputPassword1" name="password" [(ngModel)]="User.password" #password="ngModel" minlength="7" maxlength="30" required >
+        <div id="passwordhelp" class="form-text" *ngIf="password.touched &&password.invalid">Password is Invalid</div>
+        <div id="fnameHelp" class="form-text" *ngIf="(User.password!=undefined)&&(User.password.length<3 ||User.password.length>30) ">Length of password should be grater than 7 and less than 30</div>
       </div>
       <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">ConfirmPassword</label>
-        <input type="cpassword" class="form-control" id="exampleInputPassword2" name="cpassword" [(ngModel)]="User.cpassword" required >
-        <!-- <div id="cpasswordhelp" class="form-text" *ngIf="cpassword.touched &&cpassword.invalid">Confirm Password is Invalid</div> -->
+        <input type="cpassword" class="form-control" id="exampleInputPassword2" name="cpassword" [(ngModel)]="User.cpassword"  #cpassword="ngModel" required >
+        <div id="cpasswordhelp" class="form-text" *ngIf="cpassword.touched &&cpassword.invalid">Confirm Password is Invalid</div>
+        <div id="cpasswordhelp" class="form-text" *ngIf="User.password!=User.cpassword">Confirm Password should match with Password</div>
       </div>
     <button type="submit" class="btn btn-primary" [disabled]="!signinform.valid">Submit</button>
   </form>

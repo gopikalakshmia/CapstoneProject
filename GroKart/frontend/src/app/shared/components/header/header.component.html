@@ -1,57 +1,28 @@
-<nav class="navbar bg-grey">
+<nav class="navbar navbar-expand-lg" style="background-color: #355E3B;">
   <div class="container-fluid">
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="offcanvas"
-      data-bs-target="#offcanvasWithBothOptions"
-      aria-controls="offcanvasWithBothOptions"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div
-      class="offcanvas offcanvas-start"
-      data-bs-scroll="true"
-      tabindex="-1"
-      id="offcanvasWithBothOptions"
-      aria-labelledby="offcanvasWithBothOptionsLabel"
-    >
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">
-          Backdrop with scrolling
-        </h5>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="offcanvas"
-          aria-label="Close"
-        ></button>
-      </div>
-      <div class="offcanvas-body">
-        <p>Try scrolling the rest of the page to see this option in action.</p>
-      </div>
-    </div>
-
     <!-- icon -->
-    <a class="navbar-brand" href="#">
-      <img
-        src="https://is5-ssl.mzstatic.com/image/thumb/Purple124/v4/62/f9/e4/62f9e434-e8d5-8ec4-a504-8b402589fa1c/source/512x512bb.jpg"
-        alt=""
-        width="150"
-        height="80"
-        class="d-inline-block align-text-top"
-      />
-     
-    </a>
 
-    <!-- Login -->
+      <div class="col-md-3">
+        <!-- Logo -->
+        <a class="navbar-brand" href="#">
+          <img
+            src="https://is5-ssl.mzstatic.com/image/thumb/Purple124/v4/62/f9/e4/62f9e434-e8d5-8ec4-a504-8b402589fa1c/source/512x512bb.jpg"
+            alt=""
+            width="150"
+            height="80"
+            class="d-inline-block align-text-top"
+          />
+         
+        </a>
+      </div>
+      <div class="col-md-4">
+          <!-- Login -->
 
     <!-- Button trigger modal -->
     <div *ngIf="loginButtonVisibility">
       <button
         type="button"
-        class="btn btn-outline-primary"
+        class="btn btn-outline-primary btn-lg"
         data-bs-toggle="modal"
         (click)="login()"
         data-bs-target="#staticBackdrop"
@@ -62,7 +33,7 @@
     <div *ngIf="!loginButtonVisibility">
       <button
         type="button"
-        class="btn btn-primary"
+        class="btn btn-primary btn-lg"
         data-bs-toggle="modal"
         (click)="logout()"
         data-bs-target="#staticBackdrop"
@@ -70,10 +41,14 @@
         Logout
       </button>
     </div>
+      </div>
+      <div class="col-md-4">
+        
+  
     <!-- user -->
-    <button
+    <!-- <button
       type="button"
-      class="btn btn-outline-dark"
+      class="btn btn-light btn-lg"
       (click)="gotouser()"
       data-bs-toggle="tooltip"
       data-bs-placement="bottom"
@@ -86,41 +61,34 @@
         height="24"
         class="d-inline-block align-text-top"
       />
-    </button>
+    </button> -->
+
+    &nbsp;&nbsp;
     <!-- cart -->
 
     <button
       type="button"
-      class="btn btn-outline-success"
+      class="btn btn-outline-secondary btn-lg"
       (click)="gotocart()"
       data-bs-toggle="tooltip"
       data-bs-placement="bottom"
       title="Cart"
     >
-      <img
-        src="https://www.kindpng.com/picc/m/80-804194_cart-free-cart-icon-png-transparent-png.png"
-        alt=""
-        width="30"
-        height="24"
-        class="d-inline-block align-text-top"
-      /><span>{{ cartCount }}</span>
+      Cart&nbsp;&nbsp;<span *ngIf="cartCount>1">{{ cartCount }}</span>
     </button>
+    &nbsp;&nbsp;
     <!-- Wishlist -->
     <button
       type="button"
-      class="btn btn-outline-danger"
+      class="btn btn-outline-danger btn-lg"
       (click)="gotowishlist()"
       data-bs-toggle="tooltip"
       data-bs-placement="bottom"
       title="Wishlist"
     >
-      <img
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3bjhvrKW4O8paiEJrdFsw3S-oEPEz6uL3vQ&usqp=CAU"
-        alt=""
-        width="30"
-        height="24"
-        class="d-inline-block align-text-top"
-      /><span>{{ wishlistcount }}</span>
+     Wishlist&nbsp;&nbsp;<span *ngIf="wishlistcount>1">{{ wishlistcount }}</span>
     </button>
-  </div>
+      </div>
+    </div>
+
 </nav>

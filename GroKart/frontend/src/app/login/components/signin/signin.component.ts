@@ -21,10 +21,11 @@ newuser:any=[];
     val=>{console.log(val);
       this.newuser=val;
       if(this.newuser.acknowledged==true)
-      this.router.navigateByUrl("/user")}
+      this.router.navigateByUrl("/user")
+    }
     ,
     (err)=>console.log(err),
-    ()=>{console.log("db working ");}
+    ()=>{console.log("db working ");window.location.reload();}
   );
   signinform.reset();
   }

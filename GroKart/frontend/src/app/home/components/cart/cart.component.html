@@ -31,7 +31,7 @@
   </thead>
   <tbody>
     <tr *ngFor="let cart of cartmod">
-      <td>
+      <td *ngIf="cart.grocery!=undefined">
         <img
           src="{{ cart.grocery.imgsrc }}"
           class=""
@@ -40,7 +40,7 @@
           alt="..."
         />
       </td>
-      <td>
+      <td *ngIf="cart.grocery!=undefined">
         <h5 class="card-title">{{ cart.grocery.title }}</h5>
         <p class="card-text">
           {{ cart.grocery.price }}/{{ cart.grocery.desc }}
@@ -48,23 +48,23 @@
       </td>
       <td>
         <div *ngIf="cart.quantity >= 1">
-          <button class="btn btn-success btn-lg" (click)="decrement(cart)">
+          <button class="btn btn-success btn-lg" (click)="decrement(cart,cart.grocery.price)">
             -
           </button>
           <span style="font-size: 1.8em">{{ cart.quantity }}</span>
-          <button class="btn btn-success btn-lg" (click)="increment(cart)">
+          <button class="btn btn-success btn-lg" (click)="increment(cart,cart.grocery.price)">
             +
           </button>
         </div>
       </td>
-      <td>
-        ${{ cart.quantity*cart.grocery.price}}
+      <td td *ngIf="cart.grocery!=undefined">
+        ${{cart.quantity*cart.grocery.price|number:'1.2'}}
       </td>
     </tr>
     <tr >
         <td></td>
         <td colspan="3"> <button type="button" class="btn btn-outline-success">Proceed to CheckOut</button></td>
-       <td>{{checkoutprice}}</td>
+       <td>{{checkoutprice|number:'1.2'}}</td>
     </tr>
   </tbody>
 </table>

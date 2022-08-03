@@ -64,9 +64,9 @@ export class WishlistComponent implements OnInit {
   this.wishlistservice.removefromWishlist(this.wishlist).subscribe(
     (val)=>{console.log(val)},
     (err)=>{console.log(err)},
-    ()=>{console.log("db done")}
+    ()=>{console.log("db done"); window.location.reload();}
   )
   //refresh page
-  window.location.reload();
+ 
     }
 }

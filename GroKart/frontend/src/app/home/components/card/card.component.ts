@@ -79,7 +79,7 @@ this.wishlist.userid=user["userid"];
          (val)=>{let result=val;
          this.cart._id=result["insertedId"]},
          (err)=>console.log(err),
-         ()=>console.log("db working successfully")
+         ()=>{console.log("db working successfully");window.location.reload();}
        )
  
      }
@@ -95,7 +95,7 @@ this.wishlist.userid=user["userid"];
  this.cartservice.updateQuantityCart(this.cart).subscribe(
    (val)=>console.log(val),
    (err)=>console.log(err),
-   ()=>{console.log("db done")}
+   ()=>{console.log("db done");window.location.reload();}
  )
  
    }
@@ -106,20 +106,21 @@ this.wishlist.userid=user["userid"];
  this.cartservice.updateQuantityCart(this.cart).subscribe(
    (val)=>console.log(val),
    (err)=>console.log(err),
-   ()=>{console.log("db done")}
+   ()=>{console.log("db done");window.location.reload();}
  )
  
    }
    addtowishlist(){
     this.wishlist.groid=this.card._id;
+    console.log("add to wishlist");
     let user=JSON.parse(localStorage.getItem('currentUser'));
     this.wishlist.userid=user["userid"];
     this.wishlistservice.addtoWishlist(this.wishlist).subscribe(
       (val)=>{console.log(val)},
       (err)=>{console.log(err)},
-      ()=>{console.log("db done")}
+      ()=>{console.log("db done");window.location.reload();}
     )
-    window.location.reload();
+    
       }
 
       removefromwishlist(){
@@ -129,9 +130,8 @@ this.wishlist.userid=user["userid"];
     this.wishlistservice.removefromWishlist(this.wishlist).subscribe(
       (val)=>{console.log(val)},
       (err)=>{console.log(err)},
-      ()=>{console.log("db done")}
+      ()=>{console.log("db done");window.location.reload();}
     )
-    window.location.reload();
       }
   
 }

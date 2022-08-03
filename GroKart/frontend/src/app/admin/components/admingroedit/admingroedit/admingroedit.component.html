@@ -3,13 +3,16 @@
 <form *ngIf="groForm" [formGroup]="groForm" (ngSubmit)="onSubmit()">
     
   <label for="title">Title: </label>
-  <input id="title" type="text" value={{gro.title}} formControlName="title">
+  <input id="title" type="text" value={{gro.title}} formControlName="title" required>
+   <div  class="form-text" *ngIf=" groForm.controls['title'].invalid && (groForm.controls['title'].dirty || groForm.controls['title'].touched)">Title is Invalid</div>
 
   <label for="desc">Description: </label>
   <input id="desc" type="text" [value]="gro.desc" formControlName="desc">
+  <div  class="form-text" *ngIf=" groForm.controls['desc'].invalid && (groForm.controls['desc'].dirty || groForm.controls['desc'].touched)">Description is Invalid</div>
 
   <label for="price">Price: </label>
   <input id="price" type="text" [value]="gro.price" formControlName="price">
+  <div  class="form-text" *ngIf=" groForm.controls['price'].invalid && (groForm.controls['price'].dirty || groForm.controls['price'].touched)">Price is Invalid</div>
 
   <button onsubmit="onSubmit()">Submit</button>
 </form> 

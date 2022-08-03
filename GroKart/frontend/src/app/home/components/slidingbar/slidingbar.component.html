@@ -46,21 +46,21 @@
             </div>
           </div>
         </nav>
-        <div class="carousel-item active" id="carousalimage1">
+        <div class="carousel-item active" id="carousalimage1" *ngIf="groceries!=undefined">
           <div class="row">
             <div class="col-md-3" *ngFor="let card of groceries.slice(0, 4)">
               <app-card [card]="card"></app-card>
             </div>
           </div>
         </div>
-        <div class="carousel-item" id="carousalimage1">
+        <div class="carousel-item" id="carousalimage1" *ngIf="groceries!=undefined">
           <div class="row">
             <div class="col-md-3" *ngFor="let card of groceries.slice(4, 8)">
               <app-card [card]="card"></app-card>
             </div>
           </div>
         </div>
-        <div class="carousel-item" id="carousalimage1">
+        <div class="carousel-item" id="carousalimage1" *ngIf="groceries!=undefined">
           <div class="row">
             <div class="col-md-3" *ngFor="let card of groceries.slice(8, 12)">
               <app-card [card]="card"></app-card>

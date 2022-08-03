@@ -6,7 +6,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let wishlist of wishlistmod">
-        <td>
+        <td *ngIf="wishlist.grocery!=undefined">
           <img
             src="{{ wishlist.grocery.imgsrc }}"
             class=""
@@ -15,7 +15,7 @@
             alt="..."
           />
         </td>
-        <td>
+        <td *ngIf="wishlist.grocery!=undefined">
           <h5 class="card-title">{{ wishlist.grocery.title }}</h5>
           <p class="card-text">
             {{ wishlist.grocery.price }}/{{ wishlist.grocery.desc }}

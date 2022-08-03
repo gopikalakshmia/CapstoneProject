@@ -1,4 +1,4 @@
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { GroceryService } from 'src/app/services/grocery/grocery.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -27,12 +27,13 @@ export class AdmingroeditComponent implements OnInit {
         this.gro = res[0];
         //console.log(this.gro);
         this.groForm = new FormGroup({
-          title: new FormControl(this.gro.title),
+          title: new FormControl(this.gro.title,Validators.required),
           desc: new FormControl(this.gro.desc),
           price: new FormControl(this.gro.price),
           imgsrc: new FormControl(this.gro.imgsrc),
           category:new FormControl(this.gro.category)
         });
+        
       },
       (err) => console.log(err),
       () => console.log('db done')

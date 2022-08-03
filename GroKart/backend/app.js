@@ -6,7 +6,7 @@ let cors=require("cors");
 
 dbConnection.connect();
 app.use(express.json());
-app.use(express.static('./dist/gro-kart'));
+//app.use(express.static('./dist/gro-kart'));
 app.use(cors());
 
 app.use(cors({
@@ -18,12 +18,12 @@ app.use(cors({
 //http://localhost:9090/api/product
 
 app.use("/api/grocery",shopRouter);
-
-
-
-
+app.get ("/",(req,res)=>{
+    res.send("Backend of grocery store");
+})
 
 
 app.listen(9090,()=>{
     console.log("server is up");
 })
+

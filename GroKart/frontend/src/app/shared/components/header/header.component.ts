@@ -18,9 +18,9 @@ export class HeaderComponent implements OnInit {
   constructor(public router: Router, private cartservice: CartService,private wishlistservice:WishlistService) {}
 
   ngOnInit(): void {
-    console.log(localStorage.getItem('currentUser').length);
-
-    if (localStorage.getItem('currentUser').length != null) {
+    console.log(localStorage.getItem('currentUser'));
+    if (localStorage.getItem('currentUser') != null) {
+  //  if (localStorage.getItem('currentUser').length != null) {
       this.loginButtonVisibility = false;
 
       //cart items quantity

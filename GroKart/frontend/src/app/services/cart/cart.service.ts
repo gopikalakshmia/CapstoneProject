@@ -10,10 +10,10 @@ export class CartService {
 
   findCartByUserId(userid){
     let val=JSON.parse(userid)
-    return this.http.put("http://localhost:9090/api/grocery/findCartByUserId",val);
+    return this.http.put("http://54.89.205.96:9091/api/grocery/findCartByUserId",val);
   }
 updateQuantityCart(cart){
-  return this.http.put("http://localhost:9090/api/grocery/updateQuantityCart",cart);
+  return this.http.put("http://54.89.205.96:9091/api/grocery/updateQuantityCart",cart);
 }
   
 }

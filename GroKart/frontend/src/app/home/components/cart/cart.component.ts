@@ -37,13 +37,23 @@ export class CartComponent implements OnInit {
           });
 
           let j=0;
+          let add=0;
           this.cartmod.filter(res=>{
             let obj={id:res.groid};
+            let q:number= (res.quantity);
+            let p:number;
             this.groservice.getSingleGrocery(obj).subscribe(
               (gro)=>{//console.log(gro);
               this.cartmod[j].grocery=gro[0];
+            p=this.cartmod[j].grocery.price;
+            let v:string=(p*q).toFixed(2);
+            this.checkoutprice=this.checkoutprice+parseFloat(v);
+            // console.log(p+","+q);
+            //   console.log("sum" +(p*q).toFixed(2));
+             //console.log("price" +this.checkoutprice);
             j++;}
             )
+           
           })
           console.log(this.cartmod);
         },
@@ -60,8 +70,9 @@ export class CartComponent implements OnInit {
     }
   }
 
-  decrement(cart){
+  decrement(cart,price){
     cart.quantity--;
+    this.checkoutprice=this.checkoutprice-price;
     this.cart.quantity=cart.quantity;
     console.log(this.cart);
     this.cartservice.updateQuantityCart(cart).subscribe(
@@ -70,8 +81,9 @@ export class CartComponent implements OnInit {
       ()=>{console.log("db done")}
     )
   }
-  increment(cart){
+  increment(cart,price){
     cart.quantity++;
+    this.checkoutprice=this.checkoutprice+ +price;
     this.cart.quantity=cart.quantity;
     console.log(this.cart);
     this.cartservice.updateQuantityCart(cart).subscribe(
@@ -80,5 +92,6 @@ export class CartComponent implements OnInit {
       ()=>{console.log("db done")}
     )
   }
+
 
 }
